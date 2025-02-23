@@ -1,7 +1,6 @@
 <div class="container mt-4">
     <h1 class="text-center">🏘️ Liste des Appartements</h1>
   
-    <!-- ✅ Bouton pour ajouter un nouvel appartement -->
     <div class="text-center my-3">
       <button class="btn btn-success" [routerLink]="['/apartments/add']">➕ Ajouter un Appartement</button>
     </div>
@@ -14,7 +13,6 @@
           <p><strong>Surface :</strong> {{ apt.surface }} m²</p>
           <p><strong>Terrasse :</strong> {{ apt.terrace ? 'Oui' : 'Non' }}</p>
   
-          <!-- ✅ Bouton pour modifier un appartement -->
           <button class="btn btn-warning btn-sm m-1" [routerLink]="['/apartments', apt.apartNum, 'edit']">✏️ Modifier</button>
         </div>
       </div>

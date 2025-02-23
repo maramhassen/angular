@@ -1,9 +1,7 @@
 <h1 class="text-center my-4">Liste des Résidences</h1>
 
-<!-- 📅 Affichage de la date -->
 <p class="text-center">📅 Date actuelle : {{ date | date:'dd/MM/yyyy' }}</p>
 
-<!-- 🔍 Champ de recherche -->
 <div class="mb-3 text-center">
   <input type="text" class="form-control w-50 mx-auto" 
          placeholder="Rechercher par adresse..." 
@@ -11,7 +9,6 @@
   <p>Résidences correspondant à "<strong>{{ searchText }}</strong>"</p>
 </div>
 
-<!-- 📋 Liste des résidences -->
 <div class="d-flex flex-wrap justify-content-center">
   <div *ngIf="filteredResidences.length > 0; else noResults">
     <div class="card m-3 shadow" *ngFor="let res of filteredResidences" style="width: 18rem;">
@@ -19,32 +16,26 @@
       <div class="card-body text-center">
         <h3 class="card-title">{{ res.name | uppercase }}</h3>
         
-        <!-- ✅ Affichage du statut -->
         <h3 [ngStyle]="{'color': getStatusColor(res.status)}">
           {{ res.status | lowercase }} {{ getStatusIcon(res.status) }}
         </h3>
 
-        <!-- 🔍 Détails -->
         <button class="btn btn-secondary btn-sm m-1" [routerLink]="['/residences', res.id]">🔍 Détails</button>
 
-        <!-- 🏘️ Voir les appartements -->
         <button class="btn btn-info btn-sm m-1" [routerLink]="['/residences', res.id, 'apartments']">
           🏘️ Appartements List
         </button>
 
-        <!-- ❤️ Ajouter aux favoris -->
         <button class="btn btn-danger btn-sm m-1" (click)="addToFavorite(res)">❤️ Like</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- 🛑 Message si aucune résidence trouvée -->
 <ng-template #noResults>
   <p class="text-center text-muted">⚠️ Aucune résidence ne correspond à votre recherche.</p>
 </ng-template>
 
-<!-- 🏆 Liste des favoris -->
 <div class="mt-4">
   <h2 class="text-center">🏆 Résidences Favorites</h2>
 
@@ -59,7 +50,6 @@
   </div>
 </div>
 
-<!-- 🚫 Message si aucun favori ajouté -->
 <ng-template #noFavorites>
   <p class="text-center text-muted">⚠️ Aucun favori ajouté.</p>
 </ng-template>
