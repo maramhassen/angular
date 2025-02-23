@@ -31,7 +31,6 @@ export class AddApartmentComponent {
       ResidenceId: ['', Validators.required]
     });
 
-    // Désactiver le champ Surface Terrace par défaut
     this.apartForm.get('surfaceTerrace')?.disable();
   }
 
