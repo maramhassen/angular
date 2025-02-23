@@ -17,14 +17,23 @@ export class ResidenceListComponent implements OnInit {
     { id: 4, name: "El Anber", address: "inconnu", image: "assets/imgs/a4.jpeg", status: "En Construction" }
   ];
 
+  filteredResidences: Residence[] = []; 
   favoriteResidences: Residence[] = [];
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.updateFilteredResidences(); 
+  }
 
+  
+  updateFilteredResidences(): void {
+    this.filteredResidences = this.filterByAddress();
+  }
+
+  
   filterByAddress(): Residence[] {
-    if (!this.searchText.trim()) {
+    if (!this.searchText || !this.searchText.trim()) {
       return this.listResidences;
     }
     return this.listResidences.filter(res =>
@@ -48,7 +57,6 @@ export class ResidenceListComponent implements OnInit {
       alert(`📍 Adresse de la résidence : ${address}`);
     }
   }
-  
 
   addToFavorite(res: Residence) {
     if (!this.favoriteResidences.includes(res)) {
@@ -59,13 +67,21 @@ export class ResidenceListComponent implements OnInit {
   removeFromFavorites(residence: Residence) {
     this.favoriteResidences = this.favoriteResidences.filter(r => r.id !== residence.id);
   }
-  getStatusIcon(status: string): string {
-  switch (status) {
-    case "Disponible": return "✅";
-    case "En Construction": return "🚧";
-    case "Vendu": return "❌";
-    default: return "❓";
-  }
-}
 
+  getStatusIcon(status: string): string {
+    switch (status) {
+      case "Disponible": return "✅";
+      case "En Construction": return "🚧";
+      case "Vendu": return "❌";
+      default: return "❓";
+    }
+  }
+
+  getImage(res: Residence): string {
+    return res.image && res.image.trim() !== "" ? res.image : "assets/imgs/default.jpg";
+  }
+
+  trackById(index: number, res: Residence): number {
+    return res.id;
+  }
 }

@@ -1,0 +1,21 @@
+<div class="container text-center mt-4">
+    <h1>Détails de la résidence</h1>
+  
+    <div *ngIf="residence; else noResidence">
+      <img [src]="residence.image" class="img-fluid rounded mb-3" alt="{{ residence.name }}">
+      <h2>{{ residence.name }}</h2>
+      <p><strong>Adresse :</strong> {{ residence.address }}</p>
+      <p><strong>Status :</strong> <span [style.color]="getStatusColor(residence.status)">{{ residence.status }}</span></p>
+  
+      <div class="mt-3">
+        <button class="btn btn-primary" (click)="nextResidence()">➡️ Suivant</button>
+        <button class="btn btn-success" [routerLink]="['/residences/add']">➕ Ajouter</button>
+        <button class="btn btn-warning" [routerLink]="['/residences', residence.id, 'edit']">✏️ Modifier</button>
+      </div>
+    </div>
+  
+    <ng-template #noResidence>
+      <p class="text-danger">⚠️ Aucune résidence trouvée.</p>
+    </ng-template>
+  </div>
+  

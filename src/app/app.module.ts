@@ -10,9 +10,16 @@ import { ResidenceListComponent } from './components/residence-list/residence-li
 import { AppartementListComponent } from './components/appartement-list/appartement-list.component';
 import { AchatComponent } from './components/achat/achat.component';
 import { ChercheComponent } from './components/cherche/cherche.component';
-import { AjoutResidenceComponent } from './components/ajout-residence/ajout-residence.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { ResidencesComponent } from './components/residences/residences/residences.component';
+import { ResidenceDetailsComponent } from './components/residences/residence-details/residence-details.component';
+import { ApartmentsComponent } from './components/apartments/apartments/apartments.component';
+import { ApartmentsByResidenceComponent } from './components/apartments/apartments-by-residence/apartments-by-residence.component';
+import { AddResidenceComponent } from './components/residences/add-residence/add-residence.component';
+import { AddApartmentComponent } from './components/apartments/add-apartment/add-apartment.component';
 
 @NgModule({
   declarations: [
@@ -21,9 +28,16 @@ import { HomeComponent } from './home/home.component';
     AppartementListComponent,
     AchatComponent,
     ChercheComponent,
-    AjoutResidenceComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    FooterComponent,
+    NotFoundComponent,
+    ResidencesComponent,
+    ResidenceDetailsComponent,
+    ApartmentsComponent,
+    ApartmentsByResidenceComponent,
+    AddResidenceComponent,
+    AddApartmentComponent
   ],
   imports: [
     BrowserModule,

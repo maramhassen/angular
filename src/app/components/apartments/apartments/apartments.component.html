@@ -1,0 +1,23 @@
+<div class="container mt-4">
+    <h1 class="text-center">🏘️ Liste des Appartements</h1>
+  
+    <!-- ✅ Bouton pour ajouter un nouvel appartement -->
+    <div class="text-center my-3">
+      <button class="btn btn-success" [routerLink]="['/apartments/add']">➕ Ajouter un Appartement</button>
+    </div>
+  
+    <div class="d-flex flex-wrap justify-content-center">
+      <div class="card m-3 shadow" *ngFor="let apt of listApartments" style="width: 18rem;">
+        <div class="card-body text-center">
+          <h3 class="card-title">Appartement #{{ apt.apartNum }}</h3>
+          <p><strong>Étage :</strong> {{ apt.floorNum }}</p>
+          <p><strong>Surface :</strong> {{ apt.surface }} m²</p>
+          <p><strong>Terrasse :</strong> {{ apt.terrace ? 'Oui' : 'Non' }}</p>
+  
+          <!-- ✅ Bouton pour modifier un appartement -->
+          <button class="btn btn-warning btn-sm m-1" [routerLink]="['/apartments', apt.apartNum, 'edit']">✏️ Modifier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
